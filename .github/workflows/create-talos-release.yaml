@@ -2,13 +2,7 @@
 name: Create new Talos assets
 
 on:
-  workflow_call:
-    inputs:
-      repositoryName:
-        description: "Target repository name"
-        default: ${{ github.repository.full_name }}
-        required: false
-        type: string
+  workflow_dispatch: {}
 
 env:
   i915_UCODE_VERSION: 20230804
