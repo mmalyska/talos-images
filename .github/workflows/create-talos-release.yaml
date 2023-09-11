@@ -9,10 +9,6 @@ on:
         default: ${{ github.repository.full_name }}
         required: false
         type: string
-      talosExtensionsImage:
-        description: "Talos extensions"
-        required: true
-        type: string
 
 env:
   i915_UCODE_VERSION: 20230804
