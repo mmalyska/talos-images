@@ -1,0 +1,28 @@
+---
+name: Create new Talos assets
+
+on:
+  workflow_call:
+    inputs:
+      repositoryName:
+        description: "Target repository name"
+        default: ${{ github.repository.full_name }}
+        required: false
+        type: string
+      talosExtensionsImage:
+        description: "Talos extensions"
+        required: true
+        type: string
+
+env:
+  i915_UCODE_VERSION: 20230804
+  INTEL_UCODE_VERSION: 20230808
+
+jobs:
+  create-release:
+    uses: mmalyska/github-workflows/.github/workflows/talos/create-talos-release.yaml@main
+    with:
+      repositoryName: ${{ github.event.inputs.repositoryName }}
+      talosExtensionsImage: |
+        --system-extension-image ghcr.io/siderolabs/i915-ucode:${{ env.i915_UCODE_VERSION }} \
+        --system-extension-image ghcr.io/siderolabs/intel-ucode:${{ env.INTEL_UCODE_VERSION }}
