@@ -2,7 +2,18 @@
 name: Create new Talos assets
 
 on:
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      pushToRegistry:
+        description: "Push image to ghcr registry?"
+        default: true
+        type: boolean
+        required: false
+      createRelease:
+        description: "Create release in repository?"
+        default: true
+        type: boolean
+        required: false
 
 jobs:
   create-release:
@@ -11,6 +22,8 @@ jobs:
       contents: write
       packages: write
     with:
+      pushToRegistry: ${{ inputs.pushToRegistry }}
+      createRelease: ${{ inputs.createRelease }}
       repositoryName: ${{ github.event.inputs.repositoryName }}
       talosExtensionsImage: |
         --system-extension-image ghcr.io/siderolabs/i915-ucode:20230804 \
