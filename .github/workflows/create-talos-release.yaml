@@ -9,6 +9,7 @@ jobs:
     uses: mmalyska/github-workflows/.github/workflows/talos-create-release.yaml@main
     permissions:
       contents: write
+      packages: write
     with:
       repositoryName: ${{ github.event.inputs.repositoryName }}
       talosExtensionsImage: |
