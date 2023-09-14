@@ -14,7 +14,7 @@
         "description": ["Process various dependencies in YAML files for docker"],
         "fileMatch": [".+\\.ya?ml$"],
         "matchStrings": [
-          "--system-extension-image (?<depName>[^:].*?):(?<currentValue>[^@].*?)[@\\n]+(?<currentDigest>sha256:[a-f0-9]+)?"
+          "--system-extension-image (?<depName>[^:].*?):(?<currentValue>[^@].*?)([@\\n\\s]+|$)(?<currentDigest>sha256:[a-f0-9]+)?"
         ],
         "versioningTemplate": "docker",
         "datasourceTemplate": "docker"
