@@ -19,5 +19,14 @@
       "versioningTemplate": "docker",
       "datasourceTemplate": "docker"
     }
+  ],
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["ghcr\\.io\/siderolabs.+"],
+      "matchUpdateTypes": [
+        "pin"
+      ],
+      "enabled": false
+    }
   ]
 }
