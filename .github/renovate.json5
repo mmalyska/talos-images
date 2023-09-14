@@ -17,8 +17,7 @@
         "--system-extension-image (?<depName>[^:].*?):(?<currentValue>[^@].*?)([@\\n\\s]|$)"
       ],
       "versioningTemplate": "docker",
-      "datasourceTemplate": "docker",
-      "pinDigests": false
+      "datasourceTemplate": "docker"
     }
   ]
 }
