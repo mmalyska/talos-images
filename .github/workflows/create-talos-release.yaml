@@ -21,11 +21,15 @@ jobs:
     permissions:
       contents: write
       packages: write
+    secrets:
+      containerRegistryPassword: ${{ secrets.GITHUB_TOKEN }}
     with:
       pushToRegistry: ${{ inputs.pushToRegistry }}
       createRelease: ${{ inputs.createRelease }}
       repositoryName: ${{ github.repository }}
-      crName: 'ghcr.io/mmalyska/talos-installer'
+      containerRepositoryName: 'mmalyska/talos-installer'
+      containerRegistryName: 'ghcr.io'
+      containerRegistryUsername: ${{ github.actor }}
       archList: '[ "amd64", "arm64" ]'
       talosExtensionsImage: |
         --system-extension-image ghcr.io/siderolabs/i915-ucode:20230804 \
