@@ -12,7 +12,7 @@
   "regexManagers": [
     {
       "description": ["Process various dependencies in YAML files for docker"],
-      "fileMatch": ["^create-talos-release\\.yaml$"],
+      "fileMatch": ["^.+create-talos-release\\.yaml$"],
       "matchStrings": [
         "--system-extension-image (?<depName>[^:].*?):(?<currentValue>[^@].*?)([@\\n\\s]+|$)(?<currentDigest>sha256:[a-f0-9]+)?"
       ],
