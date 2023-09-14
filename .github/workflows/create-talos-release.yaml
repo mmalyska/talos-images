@@ -24,7 +24,7 @@ jobs:
     with:
       pushToRegistry: ${{ inputs.pushToRegistry }}
       createRelease: ${{ inputs.createRelease }}
-      repositoryName: ${{ github.event.inputs.repositoryName }}
+      repositoryName: ${{ github.repository }}
       crName: 'ghcr.io/mmalyska/talos-installer'
       archList: '[ "amd64", "arm64" ]'
       talosExtensionsImage: |
