@@ -17,15 +17,7 @@
         "--system-extension-image (?<depName>[^:].*?):(?<currentValue>[^@].*?)([@\\n\\s]+|$)(?<currentDigest>sha256:[a-f0-9]+)?"
       ],
       "versioningTemplate": "docker",
-      "datasourceTemplate": "docker"
-    }
-  ],
-  "packageRules": [
-    {
-      "matchPackagePatterns": ["ghcr\\.io\/siderolabs.+"],
-      "matchUpdateTypes": [
-        "digest"
-      ],
+      "datasourceTemplate": "docker",
       "pinDigests": false
     }
   ]
