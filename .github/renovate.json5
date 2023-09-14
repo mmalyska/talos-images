@@ -24,7 +24,7 @@
     {
       "matchPackagePatterns": ["ghcr\\.io\\/siderolabs.+"],
       "matchUpdateTypes": [
-        "pin"
+        "pinDigest"
       ],
       "enabled": false
     }
