@@ -2,6 +2,8 @@
 name: Create new Talos assets
 
 on:
+  schedule:
+    - cron: '0 0 * * *'
   workflow_dispatch:
     inputs:
       pushToRegistry:
@@ -24,8 +26,8 @@ jobs:
     secrets:
       containerRegistryPassword: ${{ secrets.GITHUB_TOKEN }}
     with:
-      pushToRegistry: ${{ inputs.pushToRegistry }}
-      createRelease: ${{ inputs.createRelease }}
+      pushToRegistry: ${{ inputs.pushToRegistry || true }}
+      createRelease: ${{ inputs.createRelease || true }}
       repositoryName: ${{ github.repository }}
       containerRepositoryName: 'mmalyska/talos-installer'
       containerRegistryName: 'ghcr.io'
