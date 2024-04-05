@@ -27,6 +27,14 @@
         "pinDigest"
       ],
       "enabled": false
+    },
+    {
+      "matchPackagePatterns": [
+        "ghcr\\.io\\/siderolabs\\/i915-ucode",
+        "ghcr\\.io\\/siderolabs\\/intel-ucode"
+      ],
+      "groupName": "extensions",
+      "group": { "commitMessageTopic": "{{{groupName}}} group" }
     }
   ]
 }
