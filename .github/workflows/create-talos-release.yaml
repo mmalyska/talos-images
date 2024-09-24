@@ -16,6 +16,11 @@ on:
         default: true
         type: boolean
         required: false
+      forceBuild:
+        description: "Force talos build"
+        default: false
+        type: boolean
+        required: false
 
 jobs:
   create-release:
