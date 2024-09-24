@@ -41,3 +41,4 @@ jobs:
       talosExtensionsImage: |
         --system-extension-image ghcr.io/siderolabs/i915-ucode:20240909 \
         --system-extension-image ghcr.io/siderolabs/intel-ucode:20240910
+      forceBuild: ${{ inputs.forceBuild }}
