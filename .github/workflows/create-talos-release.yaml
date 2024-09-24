@@ -4,6 +4,7 @@ name: Create new Talos assets
 on:
   schedule:
     - cron: '0 * * * *'
+      
   workflow_dispatch:
     inputs:
       pushToRegistry:
@@ -41,4 +42,4 @@ jobs:
       talosExtensionsImage: |
         --system-extension-image ghcr.io/siderolabs/i915-ucode:20240909 \
         --system-extension-image ghcr.io/siderolabs/intel-ucode:20240910
-      forceBuild: ${{ inputs.forceBuild }}
+      forceBuild: ${{ inputs.forceBuild || false }}
