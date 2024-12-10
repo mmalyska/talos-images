@@ -40,6 +40,6 @@ jobs:
       containerRegistryUsername: ${{ github.actor }}
       archList: '[ "amd64", "arm64" ]'
       talosExtensionsImage: |
-        --system-extension-image ghcr.io/siderolabs/i915-ucode:20240909 \
-        --system-extension-image ghcr.io/siderolabs/intel-ucode:20240910
+        --system-extension-image ghcr.io/siderolabs/i915-ucode:20241110 \
+        --system-extension-image ghcr.io/siderolabs/intel-ucode:20241112
       forceBuild: ${{ inputs.forceBuild || false }}
