@@ -41,5 +41,6 @@ jobs:
       archList: '[ "amd64", "arm64" ]'
       talosExtensionsImage: |
         --system-extension-image ghcr.io/siderolabs/i915-ucode:20241110 \
-        --system-extension-image ghcr.io/siderolabs/intel-ucode:20241112
+        --system-extension-image ghcr.io/siderolabs/intel-ucode:20241112 \
+        --system-extension-image ghcr.io/siderolabs/i915:20241110-v1.9.0
       forceBuild: ${{ inputs.forceBuild || false }}
