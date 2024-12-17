@@ -1,40 +1,51 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "github>mmalyska/renovate-config",
-    "github>mmalyska/renovate-config:automerge-github-actions",
-    "github>mmalyska/renovate-config:automerge-docker-digest"
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  extends: [
+    'github>mmalyska/renovate-config',
+    'github>mmalyska/renovate-config:automerge-github-actions',
+    'github>mmalyska/renovate-config:automerge-docker-digest',
   ],
-  "platform": "github",
-  "username": "bendo-bot[bot]",
-  "gitAuthor": "bendo-bot <126472327+bendo-bot[bot]@users.noreply.github.com>",
-  "repositories": ["mmalyska/talos-images"],
-  "regexManagers": [
-    {
-      "description": ["Process various dependencies in YAML files for docker"],
-      "fileMatch": ["^.+create-talos-release\\.yaml$"],
-      "matchStrings": [
-        "--system-extension-image (?<depName>[^:].*?):(?<currentValue>[^@].*?)([@\\n\\s]|$)"
-      ],
-      "versioningTemplate": "docker",
-      "datasourceTemplate": "docker"
-    }
+  platform: 'github',
+  username: 'bendo-bot[bot]',
+  gitAuthor: 'bendo-bot <126472327+bendo-bot[bot]@users.noreply.github.com>',
+  repositories: [
+    'mmalyska/talos-images',
   ],
-  "packageRules": [
+  customManagers: [
     {
-      "matchPackagePatterns": ["ghcr\\.io\\/siderolabs.+"],
-      "matchUpdateTypes": [
-        "pinDigest"
+      customType: 'regex',
+      description: [
+        'Process various dependencies in YAML files for docker',
       ],
-      "enabled": false
+      fileMatch: [
+        '^.+create-talos-release\\.yaml$',
+      ],
+      matchStrings: [
+        '--system-extension-image (?<depName>[^:].*?):(?<currentValue>[^@].*?)([@\\n\\s]|$)',
+      ],
+      versioningTemplate: 'docker',
+      datasourceTemplate: 'docker',
+    },
+  ],
+  packageRules: [
+    {
+      matchUpdateTypes: [
+        'pinDigest',
+      ],
+      enabled: false,
+      matchPackageNames: [
+        '/ghcr\\.io\\/siderolabs.+/',
+      ],
     },
     {
-      "matchPackagePatterns": [
-        "ghcr\\.io\\/siderolabs\\/i915-ucode",
-        "ghcr\\.io\\/siderolabs\\/intel-ucode"
+      groupName: 'extensions',
+      group: {
+        commitMessageTopic: '{{{groupName}}} group',
+      },
+      matchPackageNames: [
+        '/ghcr\\.io\\/siderolabs\\/i915-ucode/',
+        '/ghcr\\.io\\/siderolabs\\/intel-ucode/',
       ],
-      "groupName": "extensions",
-      "group": { "commitMessageTopic": "{{{groupName}}} group" }
-    }
-  ]
+    },
+  ],
 }
